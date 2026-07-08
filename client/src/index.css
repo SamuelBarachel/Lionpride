@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+  }
+
+  input, textarea, select {
+    @apply text-base;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-700 rounded-full; }
+}
+
+@layer components {
+  .card {
+    @apply bg-slate-900 border border-slate-800 rounded-2xl;
+  }
+
+  .card-inner {
+    @apply bg-slate-800/50 border border-slate-700/50 rounded-xl;
+  }
+
+  .btn-primary {
+    @apply bg-gold-500 hover:bg-gold-400 active:bg-gold-600 text-slate-950 font-semibold
+           rounded-xl px-5 py-3 transition-all duration-150 flex items-center justify-center gap-2
+           disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 active:bg-slate-900 text-slate-100 font-medium
+           border border-slate-700 rounded-xl px-5 py-3 transition-all duration-150
+           flex items-center justify-center gap-2 select-none;
+  }
+
+  .btn-danger {
+    @apply bg-red-900/40 hover:bg-red-800/60 text-red-400 border border-red-800/50
+           rounded-xl px-4 py-2.5 transition-all duration-150 flex items-center justify-center gap-2 select-none;
+  }
+
+  .input-field {
+    @apply bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 w-full
+           text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2
+           focus:ring-gold-500/50 focus:border-gold-500/50 transition-all duration-150;
+  }
+
+  .label {
+    @apply text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5 block;
+  }
+
+  .stat-card {
+    @apply card p-4 flex flex-col gap-2;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .page-header {
+    @apply flex items-center justify-between px-4 pt-6 pb-4;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold text-slate-100;
+  }
+
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3;
+  }
+}
+
+/* Safe area for mobile notches */
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.pb-nav { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
+
+/* Smooth scroll */
+.scroll-smooth { scroll-behavior: smooth; }
+
+/* Status badge colors */
+.status-active { @apply badge bg-emerald-900/50 text-emerald-400 border border-emerald-800/50; }
+.status-sold { @apply badge bg-blue-900/50 text-blue-400 border border-blue-800/50; }
+.status-deceased { @apply badge bg-red-900/50 text-red-400 border border-red-800/50; }
+.status-transferred { @apply badge bg-purple-900/50 text-purple-400 border border-purple-800/50; }
+.gender-male { @apply badge bg-sky-900/50 text-sky-400 border border-sky-800/50; }
+.gender-female { @apply badge bg-pink-900/50 text-pink-400 border border-pink-800/50; }
