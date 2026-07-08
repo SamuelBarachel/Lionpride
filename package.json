@@ -12,7 +12,7 @@
     "install:all": "npm install && cd server && npm install && cd ../client && npm install"
   },
   "engines": {
-    "node": ">=20 <21"
+    "node": ">=18 <19"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
