@@ -8,3 +8,5 @@ server/.env
 .DS_Store
 .replit
 replit.nix
+client/yarn.lock
+server/yarn.lock
