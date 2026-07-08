@@ -48,9 +48,10 @@ app.use('/api/dashboard', dashboardRoutes);
 
 // Serve React build in production
 if (process.env.NODE_ENV === 'production') {
-  const buildPath = process.env.CLIENT_BUILD_PATH || path.join(__dirname, '../client/dist');
-  app.use(express.static(buildPath));
-  app.get('*', (req, res) => {
+  const buildPath = path.join(__dirname, '../client/dist');
+  app.use(express.static(buildPath, { index: false }));
+  // Serve index.html for all non-API routes (client-side routing)
+  app.get(/^(?!\/api).*$/, (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'));
   });
 }
